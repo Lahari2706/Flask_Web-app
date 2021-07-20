@@ -1,0 +1,41 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+%}
+<h1 align="center">Hey! How's Your Day</h1>
+<ul class="list-group list-group-flush" id="notes">
+  {% for note in user.notes %}
+  <li class="list-group-item">
+    {{ note.data }}
+    <button type="button" class="close" onClick="deleteNote({{ note.id }})">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </li>
+  {% endfor %}
+</ul>
+                       <!--hjshjhdjah kjshkjdhjs  class="form-control"-->
+<center>
+<form method="POST">
+  <table frame="box" cellspacing="10">
+    <tr>
+    <td>Title:</td>
+    <td><input type="text" size="40" name="uname"/></td>
+  </tr> 
+  <tr>
+    <td>Date:</td>
+    <td><input type="text" size="40" name="uname"/></td>
+  </tr>
+  <tr>
+  <td>Write Here-></td>
+  <td><textarea name="note" id="note" style="width: 285px; height: 110px;"></textarea></td> 
+ </tr>
+  <br />
+  <tr>
+    <td><button type="submit">Save Note</button></td>
+    <td><input type="file" name="upload"></td>
+  </tr>
+  <!--DOCTYPE<div align="center">
+    <button type="submit" class="btn btn-primary">Save Note</button>   class="btn btn-primary"
+  </div>-->
+</table>
+</form>
+</center>
+{% endblock %}
